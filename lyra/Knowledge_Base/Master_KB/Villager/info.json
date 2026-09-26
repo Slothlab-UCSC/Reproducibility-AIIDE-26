@@ -1,0 +1,58 @@
+{
+  "Sources": [
+    {
+      "Source_Name": "Emerald Guardian",
+      "Source_Bias": -1.0,
+      "Voice": "Activist, safety-focused, anti-pillager incursions.",
+      "Topics": "Settlement strengthening, defensive walls, “Our homes first” rhetoric."
+    },
+    {
+      "Source_Name": "The Potato",
+      "Source_Bias": -0.7,
+      "Voice": "Analytical, emphasizes community resilience.",
+      "Topics": "Infrastructure, housing, villager well-being, passive defense measures."
+    },
+    {
+      "Source_Name": "The Square Sun Times",
+      "Source_Bias": -0.4,
+      "Voice": "Calm, local-community coverage.",
+      "Topics": "Village development, communal projects, defensive strategy debates."
+    },
+    {
+      "Source_Name": "The Cobblestone Ledger",
+      "Source_Bias": -0.2,
+      "Voice": "Calm, community-focused, emphasizes safety and preparedness at home.",
+      "Topics": "Village defenses, infrastructure upgrades, cautious protection strategies."
+    },
+    {
+      "Source_Name": "The Daily Pig",
+      "Source_Bias": 0.0,
+      "Voice": "Just-the-facts reporting similar to AP or Reuters.",
+      "Topics": "Both stances equally, uses data without ideological framing."
+    },
+    {
+      "Source_Name": "Block Chronicle",
+      "Source_Bias": 0.1,
+      "Voice": "Professional, slightly more pro-action but tries to stay balanced.",
+      "Topics": "Military analysis, strategic considerations, raid-risk data."
+    },
+    {
+      "Source_Name": "The Pillager Watch",
+      "Source_Bias": 0.4,
+      "Voice": "Action-oriented, talks about threat elimination.",
+      "Topics": "Preemptive strikes, expedition readiness."
+    },
+    {
+      "Source_Name": "Overworld Observer",
+      "Source_Bias": 0.7,
+      "Voice": "War-focused, heroic language, calls villagers to defend the realm by attacking first.",
+      "Topics": "Combat training, raid tactics, success stories."
+    },
+    {
+      "Source_Name": "The Iron Sentinel",
+      "Source_Bias": 0.9,
+      "Voice": "Militaristic, pro-aggression, alarmist tone.",
+      "Topics": "Outpost eradication, villager militias, anti-pillager rhetoric."
+    }
+  ]
+}

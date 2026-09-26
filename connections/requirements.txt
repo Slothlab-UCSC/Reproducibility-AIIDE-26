@@ -1,0 +1,23 @@
+# Core ML/NLP
+sentence-transformers>=2.2.0
+scikit-learn>=1.0.0
+numpy>=1.21.0
+
+# Phonetic Analysis
+pronouncing>=0.2.0          # CMU dictionary for rhyme detection (TriCO)
+phonetics>=1.0.5            # Soundex/Metaphone for phonetic similarity
+
+# LLM APIs
+openai>=1.0.0
+
+# Web Server
+flask>=2.0.0
+flask-cors>=4.0.0
+
+# Optional: For open-source model support
+# transformers>=4.30.0
+# torch>=2.0.0
+
+# Optional: For better word processing
+# nltk>=3.8.0
+# spacy>=3.5.0

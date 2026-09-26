@@ -1,0 +1,40 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore agent-specific knowledge bases
+Knowledge_Base/Agent/
+
+# Ignore Interactions folder (conversation logs)
+Simulation/Interactions/
+
+# Ignore conversation log files
+*.jsonl
+*.txt
+
+# Ignore generated graphs
+graphs/*.png

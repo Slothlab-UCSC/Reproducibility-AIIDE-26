@@ -1,0 +1,30 @@
+Start testing: Jun 25 16:26 PDT
+----------------------------------------------------------
+1/1 Testing: paindemic_tests
+1/1 Test: paindemic_tests
+Command: "/mnt/f/work/projects/PAIndemic/build/paindemic_tests"
+Directory: /mnt/f/work/projects/PAIndemic/build
+"paindemic_tests" start time: Jun 25 16:26 PDT
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.11"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/f/work/projects/PAIndemic/tests/test_selfplay.cpp:13:
+TEST CASE:  random self-play terminates cleanly across many seeds
+
+/mnt/f/work/projects/PAIndemic/tests/test_selfplay.cpp:45: MESSAGE: random self-play: wins=0 losses=300
+
+===============================================================================
+[doctest] test cases:    53 |    53 passed | 0 failed | 0 skipped
+[doctest] assertions: 49014 | 49014 passed | 0 failed |
+[doctest] Status: SUCCESS!
+<end of output>
+Test time =  70.67 sec
+----------------------------------------------------------
+Test Passed.
+"paindemic_tests" end time: Jun 25 16:28 PDT
+"paindemic_tests" time elapsed: 00:01:10
+----------------------------------------------------------
+
+End testing: Jun 25 16:28 PDT

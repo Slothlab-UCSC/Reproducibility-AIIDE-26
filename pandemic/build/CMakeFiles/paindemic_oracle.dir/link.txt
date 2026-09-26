@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/paindemic_oracle.dir/apps/oracle.cpp.o -o paindemic_oracle  libpaindemic.a 

@@ -1,0 +1,1 @@
+{"game_name": "default", "total_turns": 8, "R": 8, "B": 3, "C": 3, "A": 0, "codemaster": "AICodemaster", "guesser": "AIGuesser", "seed": 1760499768.120397, "time_s": 399.8951852321625, "cm_kwargs": {}, "g_kwargs": {}}

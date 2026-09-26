@@ -1,0 +1,19 @@
+MiniSTS Evaluation Summary
+=========================
+
+Experiment: 100 games, RandomBot, standard deck vs JawWorm
+
+Total games: 100
+Wins: 85
+Losses: 15
+Win rate: 85%
+Average final HP (all runs): 41.1
+
+Details:
+- Losses (hp=0): 15
+- HP values range: 0 to 74
+- Deck used: 5x Strike, 4x Defend, 1x Bash
+- Bot: RandomBot
+- Enemy: JawWorm
+
+

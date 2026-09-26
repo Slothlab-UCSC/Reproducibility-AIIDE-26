@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpaindemic.a CMakeFiles/paindemic.dir/src/map_data.cpp.o CMakeFiles/paindemic.dir/src/engine.cpp.o CMakeFiles/paindemic.dir/src/log.cpp.o CMakeFiles/paindemic.dir/src/heuristic.cpp.o CMakeFiles/paindemic.dir/src/agents.cpp.o CMakeFiles/paindemic.dir/src/state_io.cpp.o
+/usr/bin/ranlib libpaindemic.a

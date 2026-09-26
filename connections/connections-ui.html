@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connections Puzzle Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white">
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // ============================================================
+    // CONNECTIONS PUZZLE GENERATOR
+    // Frontend that connects to Flask API (server.py)
+    // ============================================================
+
+    const API_BASE = 'http://localhost:5001/api';
+
+    const DIFFICULTY_COLORS = {
+      YELLOW: { bg: '#F7DF94', text: '#1a1a1a' },
+      GREEN: { bg: '#A8D08D', text: '#1a1a1a' },
+      BLUE: { bg: '#9DB4D4', text: '#1a1a1a' },
+      PURPLE: { bg: '#C4A8D0', text: '#1a1a1a' }
+    };
+
+    const METHODS = [
+      { id: 'one_step', name: 'One-Step', desc: 'Direct generation', icon: '○' },
+      { id: 'intentional_overlap', name: 'Overlap', desc: 'Multi-meaning traps', icon: '◎' },
+      { id: 'false_group', name: 'False Group', desc: 'Red herrings', icon: '◇' },
+      { id: 'tree_of_thoughts', name: 'Tree of Thoughts', desc: 'Iterative exploration', icon: '△' },
+      { id: 'trico', name: 'TriCO', desc: 'Tri-view optimization', icon: '☆' }
+    ];
+
+    // ============================================================
+    // COMPONENTS
+    // ============================================================
+
+    const FadeIn = ({ children, delay = 0, className = '' }) => {
+      const [visible, setVisible] = useState(false);
+      useEffect(() => {
+        const timer = setTimeout(() => setVisible(true), delay);
+        return () => clearTimeout(timer);
+      }, [delay]);
+      
+      return (
+        <div 
+          className={`transition-all duration-700 ease-out ${className}`}
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)'
+          }}
+        >
+          {children}
+        </div>
+      );
+    };
+
+    const Spinner = () => (
+      <div className="relative w-10 h-10">
+        <div className="absolute inset-0 border-2 border-neutral-200 rounded-full" />
+        <div className="absolute inset-0 border-2 border-transparent border-t-neutral-900 rounded-full animate-spin" />
+      </div>
+    );
+
+    const AnimatedNumber = ({ value, suffix = '' }) => {
+      const [display, setDisplay] = useState(0);
+      
+      useEffect(() => {
+        const target = parseFloat(value) || 0;
+        const duration = 800;
+        const steps = 25;
+        const increment = target / steps;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            setDisplay(target);
+            clearInterval(timer);
+          } else {
+            setDisplay(current);
+          }
+        }, duration / steps);
+        
+        return () => clearInterval(timer);
+      }, [value]);
+      
+      const formatted = typeof value === 'number' && value % 1 !== 0 
+        ? display.toFixed(1) 
+        : Math.round(display);
+      
+      return <span>{formatted}{suffix}</span>;
+    };
+
+    const StatusBadge = ({ connected }) => (
+      <div className={`
+        flex items-center gap-2 px-3 py-1.5 rounded-full text-xs
+        ${connected ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}
+      `}>
+        <span className={`w-2 h-2 rounded-full ${connected ? 'bg-green-500' : 'bg-red-500'}`} />
+        {connected ? 'API Connected' : 'API Disconnected'}
+      </div>
+    );
+
+    // ============================================================
+    // MAIN APP
+    // ============================================================
+
+    function App() {
+      const [phase, setPhase] = useState('landing');
+      const [method, setMethod] = useState('trico');
+      const [theme, setTheme] = useState('');
+      const [simCount, setSimCount] = useState(10);
+      const [puzzle, setPuzzle] = useState(null);
+      const [evaluation, setEvaluation] = useState(null);
+      const [simResults, setSimResults] = useState(null);
+      const [status, setStatus] = useState('');
+      const [error, setError] = useState(null);
+      const [revealed, setRevealed] = useState([]);
+      const [apiConnected, setApiConnected] = useState(false);
+      const [logs, setLogs] = useState([]);
+
+      // Check API connection on mount
+      useEffect(() => {
+        checkApiConnection();
+      }, []);
+
+      const checkApiConnection = async () => {
+        try {
+          const res = await fetch(`${API_BASE}/health`);
+          setApiConnected(res.ok);
+        } catch {
+          setApiConnected(false);
+        }
+      };
+
+      const addLog = (message) => {
+        setLogs(prev => [...prev, { time: new Date().toLocaleTimeString(), message }]);
+      };
+
+      const generatePuzzle = async () => {
+        setPhase('generating');
+        setError(null);
+        setRevealed([]);
+        setLogs([]);
+        
+        try {
+          // Step 1: Generate puzzle
+          addLog('Sending generation request to server...');
+          setStatus('Generating puzzle...');
+          
+          const genRes = await fetch(`${API_BASE}/generate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              method,
+              theme: theme || null,
+              backend: 'openai'
+            })
+          });
+          
+          const genData = await genRes.json();
+          
+          if (!genData.success) {
+            throw new Error(genData.error || 'Generation failed');
+          }
+          
+          addLog(`Puzzle generated: ${genData.puzzle.groups.length} groups`);
+          setPuzzle(genData.puzzle);
+          setEvaluation(genData.evaluation);
+          
+          // Step 2: Run simulations
+          addLog('Running player simulations...');
+          setStatus('Running simulations...');
+          
+          const simRes = await fetch(`${API_BASE}/simulate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              puzzle: genData.puzzle,
+              simulations: simCount,
+              backend: 'openai'
+            })
+          });
+          
+          const simData = await simRes.json();
+          
+          if (!simData.success) {
+            throw new Error(simData.error || 'Simulation failed');
+          }
+          
+          addLog(`Simulations complete: ${(simData.results.solveRate * 100).toFixed(0)}% solve rate`);
+          setSimResults(simData.results);
+          
+          // Done!
+          addLog('Generation complete!');
+          setPhase('results');
+          
+        } catch (err) {
+          console.error(err);
+          setError(err.message);
+          addLog(`Error: ${err.message}`);
+          setPhase('config');
+        }
+      };
+
+      const revealGroup = (index) => {
+        if (!revealed.includes(index)) {
+          setRevealed([...revealed, index]);
+        }
+      };
+
+      const reset = () => {
+        setPhase('config');
+        setPuzzle(null);
+        setEvaluation(null);
+        setSimResults(null);
+        setRevealed([]);
+        setLogs([]);
+      };
+
+      // ============================================================
+      // LANDING
+      // ============================================================
+
+      if (phase === 'landing') {
+        return (
+          <div className="min-h-screen flex flex-col items-center justify-center p-8">
+            <FadeIn>
+              <div className="w-20 h-20 mb-10 grid grid-cols-2 gap-1.5">
+                {['YELLOW', 'GREEN', 'BLUE', 'PURPLE'].map(color => (
+                  <div key={color} className="rounded-sm" style={{backgroundColor: DIFFICULTY_COLORS[color].bg}} />
+                ))}
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={200}>
+              <h1 className="text-5xl font-extralight tracking-tight text-neutral-900 mb-3">
+                Connections
+              </h1>
+            </FadeIn>
+            
+            <FadeIn delay={400}>
+              <p className="text-neutral-400 tracking-widest text-xs uppercase mb-4">
+                Puzzle Generator
+              </p>
+            </FadeIn>
+            
+            <FadeIn delay={500}>
+              <StatusBadge connected={apiConnected} />
+            </FadeIn>
+            
+            <FadeIn delay={600}>
+              <button
+                onClick={() => setPhase('config')}
+                disabled={!apiConnected}
+                className={`
+                  mt-12 px-16 py-5 text-sm tracking-widest uppercase transition-all
+                  ${apiConnected 
+                    ? 'bg-neutral-900 text-white hover:bg-neutral-800 hover:shadow-xl cursor-pointer' 
+                    : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'}
+                `}
+              >
+                Begin
+              </button>
+            </FadeIn>
+            
+            {!apiConnected && (
+              <FadeIn delay={700}>
+                <div className="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg max-w-md text-center">
+                  <p className="text-sm text-amber-800 mb-2">
+                    <strong>Server not running</strong>
+                  </p>
+                  <p className="text-xs text-amber-700">
+                    Start the Flask server first:
+                  </p>
+                  <code className="block mt-2 p-2 bg-amber-100 rounded text-xs text-amber-900">
+                    python server.py
+                  </code>
+                  <button
+                    onClick={checkApiConnection}
+                    className="mt-3 text-xs text-amber-700 underline hover:text-amber-900"
+                  >
+                    Retry connection
+                  </button>
+                </div>
+              </FadeIn>
+            )}
+            
+            <FadeIn delay={800}>
+              <p className="mt-16 text-xs text-neutral-300 max-w-md text-center leading-relaxed">
+                Generate challenging word puzzles using advanced AI methods including semantic analysis, 
+                phonetic patterns, and multi-view optimization.
+              </p>
+            </FadeIn>
+          </div>
+        );
+      }
+
+      // ============================================================
+      // CONFIG
+      // ============================================================
+
+      if (phase === 'config') {
+        return (
+          <div className="min-h-screen flex items-center justify-center p-8">
+            <div className="w-full max-w-lg">
+              <FadeIn>
+                <div className="flex justify-between items-center mb-8">
+                  <button 
+                    onClick={() => setPhase('landing')}
+                    className="text-xs text-neutral-400 hover:text-neutral-900 transition-colors flex items-center gap-2"
+                  >
+                    <span>←</span> Back
+                  </button>
+                  <StatusBadge connected={apiConnected} />
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={100}>
+                <h2 className="text-3xl font-extralight text-neutral-900 mb-1">Configure</h2>
+                <p className="text-neutral-400 text-sm mb-10">Set generation parameters</p>
+              </FadeIn>
+
+              {/* Method Selection */}
+              <FadeIn delay={200}>
+                <div className="mb-8">
+                  <label className="text-xs tracking-widest uppercase text-neutral-400 mb-3 block">
+                    Generation Method
+                  </label>
+                  <div className="space-y-2">
+                    {METHODS.map((m) => (
+                      <button
+                        key={m.id}
+                        onClick={() => setMethod(m.id)}
+                        className={`
+                          w-full p-4 text-left transition-all duration-200 border rounded-sm
+                          ${method === m.id 
+                            ? 'border-neutral-900 bg-neutral-50' 
+                            : 'border-neutral-100 hover:border-neutral-300'}
+                        `}
+                      >
+                        <div className="flex items-center gap-4">
+                          <span className={`text-xl ${method === m.id ? 'text-neutral-900' : 'text-neutral-300'}`}>
+                            {m.icon}
+                          </span>
+                          <div className="flex-1">
+                            <span className={`block text-sm font-medium ${method === m.id ? 'text-neutral-900' : 'text-neutral-500'}`}>
+                              {m.name}
+                            </span>
+                            <span className="text-xs text-neutral-400">{m.desc}</span>
+                          </div>
+                          {method === m.id && (
+                            <span className="w-2 h-2 bg-neutral-900 rounded-full" />
+                          )}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Theme */}
+              <FadeIn delay={300}>
+                <div className="mb-8">
+                  <label className="text-xs tracking-widest uppercase text-neutral-400 mb-3 block">
+                    Theme <span className="normal-case text-neutral-300">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={theme}
+                    onChange={(e) => setTheme(e.target.value)}
+                    placeholder="e.g., Music, Sports, Movies..."
+                    className="w-full p-4 border border-neutral-100 focus:border-neutral-900 outline-none transition-colors rounded-sm"
+                  />
+                </div>
+              </FadeIn>
+
+              {/* Simulations */}
+              <FadeIn delay={400}>
+                <div className="mb-10">
+                  <div className="flex justify-between items-center mb-3">
+                    <label className="text-xs tracking-widest uppercase text-neutral-400">
+                      Player Simulations
+                    </label>
+                    <span className="text-sm text-neutral-900 font-medium tabular-nums">{simCount}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="3"
+                    max="30"
+                    value={simCount}
+                    onChange={(e) => setSimCount(parseInt(e.target.value))}
+                    className="w-full h-1 bg-neutral-200 rounded-full appearance-none cursor-pointer accent-neutral-900"
+                  />
+                </div>
+              </FadeIn>
+
+              {/* Generate */}
+              <FadeIn delay={500}>
+                <button
+                  onClick={generatePuzzle}
+                  disabled={!apiConnected}
+                  className={`
+                    w-full py-4 text-sm tracking-widest uppercase transition-all rounded-sm
+                    ${apiConnected
+                      ? 'bg-neutral-900 text-white hover:bg-neutral-800'
+                      : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'}
+                  `}
+                >
+                  Generate Puzzle
+                </button>
+              </FadeIn>
+
+              {error && (
+                <FadeIn>
+                  <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-sm">
+                    <p className="text-sm text-red-700">{error}</p>
+                  </div>
+                </FadeIn>
+              )}
+            </div>
+          </div>
+        );
+      }
+
+      // ============================================================
+      // GENERATING
+      // ============================================================
+
+      if (phase === 'generating') {
+        return (
+          <div className="min-h-screen flex items-center justify-center p-8">
+            <div className="w-full max-w-md">
+              <div className="flex justify-center mb-8">
+                <Spinner />
+              </div>
+              
+              <h2 className="text-2xl font-extralight text-neutral-900 text-center mb-2">
+                Generating
+              </h2>
+              
+              <p className="text-sm text-neutral-500 text-center mb-8">
+                {status || 'Initializing...'}
+              </p>
+
+              {/* Live Logs */}
+              <div className="bg-neutral-50 rounded-sm p-4 max-h-64 overflow-y-auto">
+                <p className="text-xs text-neutral-400 uppercase tracking-wide mb-3">Server Logs</p>
+                {logs.length === 0 ? (
+                  <p className="text-xs text-neutral-400">Waiting for response...</p>
+                ) : (
+                  <div className="space-y-1">
+                    {logs.map((log, i) => (
+                      <div key={i} className="flex gap-2 text-xs">
+                        <span className="text-neutral-400 tabular-nums">{log.time}</span>
+                        <span className="text-neutral-700">{log.message}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Preview Grid */}
+              <div className="mt-8 grid grid-cols-4 gap-1.5">
+                {[...Array(16)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="aspect-square bg-neutral-100 rounded-sm animate-pulse"
+                    style={{ animationDelay: `${i * 80}ms`, animationDuration: '1.2s' }}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      // ============================================================
+      // RESULTS
+      // ============================================================
+
+      if (phase === 'results' && puzzle) {
+        const allWords = puzzle.groups.flatMap(g => g.words);
+        const shuffled = [...allWords].sort((a, b) => a.localeCompare(b));
+
+        return (
+          <div className="min-h-screen bg-white">
+            {/* Header */}
+            <div className="border-b border-neutral-100 sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+              <div className="max-w-4xl mx-auto px-8 py-5 flex justify-between items-center">
+                <div>
+                  <h1 className="text-lg font-light text-neutral-900">
+                    {METHODS.find(m => m.id === method)?.name} Puzzle
+                  </h1>
+                  <div className="flex items-center gap-3 mt-1">
+                    {theme && <span className="text-xs text-neutral-400">Theme: {theme}</span>}
+                    {puzzle.metadata?.fully_dynamic && (
+                      <span className="text-xs px-2 py-0.5 bg-green-50 text-green-700 rounded-full">
+                        Fully Dynamic
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={reset}
+                  className="px-5 py-2 text-xs tracking-widest uppercase border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all rounded-sm"
+                >
+                  New Puzzle
+                </button>
+              </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto px-8 py-12">
+              {/* Puzzle Grid */}
+              <FadeIn>
+                <div className="mb-14">
+                  <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-4">
+                    Puzzle
+                  </h3>
+                  <div className="grid grid-cols-4 gap-2">
+                    {shuffled.map((word, i) => {
+                      const groupIndex = puzzle.groups.findIndex(g => g.words.includes(word));
+                      const isRevealed = revealed.includes(groupIndex);
+                      const color = puzzle.groups[groupIndex]?.difficulty;
+                      
+                      return (
+                        <div
+                          key={i}
+                          onClick={() => revealGroup(groupIndex)}
+                          className="aspect-square flex items-center justify-center text-xs font-medium tracking-wide transition-all duration-500 cursor-pointer hover:scale-105 rounded-sm"
+                          style={{
+                            backgroundColor: isRevealed ? DIFFICULTY_COLORS[color]?.bg : '#f5f5f5',
+                            color: isRevealed ? DIFFICULTY_COLORS[color]?.text : '#525252'
+                          }}
+                        >
+                          {word}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="text-xs text-neutral-400 mt-3 text-center">
+                    Click tiles to reveal groups
+                  </p>
+                </div>
+              </FadeIn>
+
+              {/* Solution */}
+              <FadeIn delay={200}>
+                <div className="mb-14">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xs tracking-widest uppercase text-neutral-400">
+                      Solution
+                    </h3>
+                    <button
+                      onClick={() => setRevealed([0, 1, 2, 3])}
+                      className="text-xs text-neutral-400 hover:text-neutral-900 transition-colors underline underline-offset-2"
+                    >
+                      Reveal All
+                    </button>
+                  </div>
+                  <div className="space-y-2">
+                    {puzzle.groups.map((group, i) => (
+                      <div
+                        key={i}
+                        onClick={() => revealGroup(i)}
+                        className={`
+                          p-5 cursor-pointer transition-all duration-500 rounded-sm
+                          ${revealed.includes(i) ? '' : 'opacity-30 hover:opacity-60'}
+                        `}
+                        style={{ backgroundColor: DIFFICULTY_COLORS[group.difficulty]?.bg }}
+                      >
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="text-xs uppercase tracking-widest opacity-50">
+                                {group.difficulty}
+                              </span>
+                              {group.primary_view && (
+                                <span className="text-xs px-1.5 py-0.5 bg-black/10 rounded">
+                                  {group.primary_view === 'sem' ? 'Semantic' : 
+                                   group.primary_view === 'pho' ? 'Phonetic' : 'Orthographic'}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm font-medium mb-2">{group.category}</p>
+                            <p className="text-xs opacity-70 tracking-wide">
+                              {group.words.join('  ·  ')}
+                            </p>
+                          </div>
+                          {!revealed.includes(i) && (
+                            <span className="text-xs opacity-40">Click to reveal</span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Evaluation Metrics */}
+              {evaluation && (
+                <FadeIn delay={400}>
+                  <div className="mb-14">
+                    <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-6">
+                      Evaluation Metrics
+                    </h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8">
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-900 tabular-nums">
+                          <AnimatedNumber value={evaluation.overallQuality * 100} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Overall Quality</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={evaluation.estimatedSolveRate} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Est. Solve Rate</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={evaluation.nearMissCount} />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Near Misses</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={evaluation.semanticClarity * 100} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Semantic Clarity</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={evaluation.deceptiveness * 100} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Deceptiveness</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={evaluation.creativity * 100} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Creativity</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              )}
+
+              {/* Simulation Results */}
+              {simResults && (
+                <FadeIn delay={600}>
+                  <div className="mb-14">
+                    <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-6">
+                      Simulation Results
+                    </h3>
+                    
+                    <div className="grid grid-cols-3 gap-12 mb-10">
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-900 tabular-nums">
+                          <AnimatedNumber value={simResults.solveRate * 100} suffix="%" />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Solve Rate</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          <AnimatedNumber value={simResults.avgMistakes} />
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Avg Mistakes</p>
+                      </div>
+                      <div>
+                        <p className="text-4xl font-extralight text-neutral-600 tabular-nums">
+                          {simResults.totalRuns}
+                        </p>
+                        <p className="text-xs text-neutral-400 mt-2 uppercase tracking-wide">Simulations</p>
+                      </div>
+                    </div>
+
+                    {/* Strategy Performance */}
+                    <div className="space-y-4 mb-10">
+                      <p className="text-xs text-neutral-400 uppercase tracking-widest mb-3">Strategy Performance</p>
+                      {Object.entries(simResults.strategies || {}).map(([name, data]) => (
+                        <div key={name} className="flex items-center gap-4">
+                          <span className="w-28 text-xs text-neutral-500 capitalize">
+                            {name.replace(/_/g, ' ')}
+                          </span>
+                          <div className="flex-1 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-neutral-900 transition-all duration-1000 ease-out rounded-full"
+                              style={{ width: `${(data.solveRate || 0) * 100}%` }}
+                            />
+                          </div>
+                          <span className="w-14 text-xs text-neutral-900 text-right tabular-nums font-medium">
+                            {Math.round((data.solveRate || 0) * 100)}%
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Group Difficulty */}
+                    {simResults.groupDifficulty && (
+                      <div className="space-y-4">
+                        <p className="text-xs text-neutral-400 uppercase tracking-widest mb-3">Group Success Rate</p>
+                        {Object.entries(simResults.groupDifficulty).map(([color, rate]) => (
+                          <div key={color} className="flex items-center gap-4">
+                            <span 
+                              className="w-28 text-xs font-medium px-3 py-1.5 rounded-sm"
+                              style={{ backgroundColor: DIFFICULTY_COLORS[color]?.bg }}
+                            >
+                              {color}
+                            </span>
+                            <div className="flex-1 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full transition-all duration-1000 ease-out rounded-full"
+                                style={{ 
+                                  width: `${(rate || 0) * 100}%`,
+                                  backgroundColor: DIFFICULTY_COLORS[color]?.bg
+                                }}
+                              />
+                            </div>
+                            <span className="w-14 text-xs text-neutral-900 text-right tabular-nums font-medium">
+                              {Math.round((rate || 0) * 100)}%
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </FadeIn>
+              )}
+
+              {/* Metadata */}
+              {puzzle.metadata && Object.keys(puzzle.metadata).length > 0 && (
+                <FadeIn delay={800}>
+                  <div className="mb-14">
+                    <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-4">
+                      Puzzle Metadata
+                    </h3>
+                    <div className="bg-neutral-50 p-4 rounded-sm">
+                      <pre className="text-xs text-neutral-600 overflow-x-auto">
+                        {JSON.stringify(puzzle.metadata, null, 2)}
+                      </pre>
+                    </div>
+                  </div>
+                </FadeIn>
+              )}
+
+              {/* Footer */}
+              <FadeIn delay={900}>
+                <div className="pt-10 border-t border-neutral-100 text-center">
+                  <p className="text-xs text-neutral-300 tracking-wide">
+                    Connections Puzzle Generator · {new Date().toLocaleDateString()}
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        );
+      }
+
+      return null;
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

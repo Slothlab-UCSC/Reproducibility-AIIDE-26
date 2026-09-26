@@ -1,0 +1,659 @@
+{
+  "Sources": [
+    {
+      "Publisher": "Block Chronicle",
+      "Source_Bias": 0.1,
+      "Works": [
+        {
+          "Source_Name": "The Strategic Value of Scouting Patrols",
+          "Source_Type": "Military Analysis",
+          "Attitude": 0.15,
+          "Source_Bias": 0.1,
+          "Description": "Argues that organized scouting patrols provide crucial intelligence to prevent surprise raids."
+        },
+        {
+          "Source_Name": "Weighing the Risks and Rewards of Outpost Engagements",
+          "Source_Type": "Analysis",
+          "Attitude": 0.1,
+          "Source_Bias": 0.1,
+          "Description": "Examines the benefits and dangers of engaging pillager outposts, leaning slightly toward targeted action."
+        },
+        {
+          "Source_Name": "Preparing Villagers for Conflict",
+          "Source_Type": "Advisory",
+          "Attitude": 0.05,
+          "Source_Bias": 0.1,
+          "Description": "Offers practical advice on training and readiness for both defensive and limited offensive operations."
+        },
+        {
+          "Source_Name": "Understanding the Logistics of Patrol Routes",
+          "Source_Type": "Analysis",
+          "Attitude": 0.12,
+          "Source_Bias": 0.1,
+          "Description": "Explores how well-planned patrol routes improve early detection of pillager movements."
+        },
+        {
+          "Source_Name": "Villager Readiness: A Practical Guide",
+          "Source_Type": "Guide",
+          "Attitude": 0.08,
+          "Source_Bias": 0.1,
+          "Description": "Provides balanced preparation steps, with a subtle emphasis on proactive measures."
+        },
+        {
+          "Source_Name": "How Far Should Patrols Travel?",
+          "Source_Type": "Military Advice",
+          "Attitude": 0.15,
+          "Source_Bias": 0.1,
+          "Description": "Discusses optimal patrol distance to obtain valuable intel without overextending villager forces."
+        },
+        {
+          "Source_Name": "What We Learned from Last Season’s Raids",
+          "Source_Type": "After-Action Report",
+          "Attitude": 0.1,
+          "Source_Bias": 0.1,
+          "Description": "Reviews last season’s raid data and suggests modestly favoring proactive scouting."
+        },
+        {
+          "Source_Name": "Balancing Defense With Strategic Action",
+          "Source_Type": "Opinion",
+          "Attitude": 0.05,
+          "Source_Bias": 0.1,
+          "Description": "Argues that villages should maintain solid defenses while not completely ruling out targeted offensive missions."
+        }
+      ]
+    },
+    {
+      "Publisher": "Emerald Guardian",
+      "Source_Bias": -1.0,
+      "Works": [
+        {
+          "Source_Name": "Fortify First: Why Offensive Raids Endanger Villager Life",
+          "Source_Type": "Editorial",
+          "Attitude": -0.95,
+          "Source_Bias": -1.0,
+          "Description": "A strong defense-first argument claiming offensive raids provoke needless casualties and that investment in walls and towers should be the priority."
+        },
+        {
+          "Source_Name": "The Hidden Cost of Outpost Warfare",
+          "Source_Type": "Investigative Report",
+          "Attitude": -1.0,
+          "Source_Bias": -1.0,
+          "Description": "Investigates economic and safety costs caused by attacking pillager outposts."
+        },
+        {
+          "Source_Name": "Homes Over Heroes: The Ethical Case for Staying Put",
+          "Source_Type": "Opinion Column",
+          "Attitude": -0.9,
+          "Source_Bias": -1.0,
+          "Description": "Argues that protecting families at home is morally superior to risking lives in raids."
+        },
+        {
+          "Source_Name": "Walls Before Warfare",
+          "Source_Type": "Editorial",
+          "Attitude": -0.92,
+          "Source_Bias": -1.0,
+          "Description": "Claims offensive raids are a misuse of resources better spent on defensive structures."
+        },
+        {
+          "Source_Name": "A Survivor’s Plea for Stronger Defenses",
+          "Source_Type": "Interview Feature",
+          "Attitude": -1.0,
+          "Source_Bias": -1.0,
+          "Description": "First-hand testimony highlighting failures of offensive strategies."
+        },
+        {
+          "Source_Name": "The Myth of the ‘Necessary Counterattack’",
+          "Source_Type": "Opinion Column",
+          "Attitude": -0.96,
+          "Source_Bias": -1.0,
+          "Description": "Argues counterattacks rarely produce beneficial outcomes for villages."
+        },
+        {
+          "Source_Name": "Protect the Innocent, Not the Ego",
+          "Source_Type": "Ethics Commentary",
+          "Attitude": -1.0,
+          "Source_Bias": -1.0,
+          "Description": "Claims raids are driven by pride rather than true need."
+        },
+        {
+          "Source_Name": "Defensive Farming Zones Reduce Casualties",
+          "Source_Type": "Analysis",
+          "Attitude": -0.9,
+          "Source_Bias": -1.0,
+          "Description": "Shows how safe-zoned farmland reduces villager casualties long-term."
+        },
+        {
+          "Source_Name": "Why Golem Expansion Beats Expedition Forces",
+          "Source_Type": "Data Report",
+          "Attitude": -0.93,
+          "Source_Bias": -1.0,
+          "Description": "Provides data that more iron golems outperform villager-led offensive raids."
+        }
+      ]
+    },
+    {
+      "Publisher": "Golem Press",
+      "Source_Bias": 1.0,
+      "Works": [
+        {
+          "Source_Name": "Purge the Outposts: A Call for Total Victory",
+          "Source_Type": "Manifesto",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Demands the complete destruction of all pillager outposts as a moral imperative."
+        },
+        {
+          "Source_Name": "The Final War Against Pillagers Has Begun",
+          "Source_Type": "Special Report",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Frames current attacks on pillagers as part of a grand, decisive war for survival."
+        },
+        {
+          "Source_Name": "Strike First, Strike Last",
+          "Source_Type": "Opinion",
+          "Attitude": 0.95,
+          "Source_Bias": 1.0,
+          "Description": "Advocates for relentless, ongoing offensives so pillagers never get a chance to recover."
+        },
+        {
+          "Source_Name": "Eradicate Their Kind: No Exceptions",
+          "Source_Type": "Manifesto",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Declares that leaving any pillagers alive guarantees future raids."
+        },
+        {
+          "Source_Name": "Our Destiny Is Domination",
+          "Source_Type": "War Propaganda",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Claims it is the villagers' destiny to dominate the Overworld by crushing pillager forces."
+        },
+        {
+          "Source_Name": "The Grand Crusade Against Pillagers",
+          "Source_Type": "Special Feature",
+          "Attitude": 0.97,
+          "Source_Bias": 1.0,
+          "Description": "Portrays ongoing campaigns as a righteous, world-shaping crusade."
+        },
+        {
+          "Source_Name": "Join the Final March",
+          "Source_Type": "Call to Action",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Urges all able-bodied villagers to enlist in permanent strike forces."
+        },
+        {
+          "Source_Name": "Why Peace Is a Weak Villager Fantasy",
+          "Source_Type": "Opinion",
+          "Attitude": 0.99,
+          "Source_Bias": 1.0,
+          "Description": "Mocks peace advocates as naive and claims only constant war can ensure security."
+        },
+        {
+          "Source_Name": "Only Total Victory Brings True Safety",
+          "Source_Type": "Editorial",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Insists that nothing short of total pillager annihilation can guarantee a safe future."
+        },
+        {
+          "Source_Name": "No Retreat, No Mercy: The Only Path Forward",
+          "Source_Type": "War Doctrine",
+          "Attitude": 1.0,
+          "Source_Bias": 1.0,
+          "Description": "Lays out an uncompromising doctrine of permanent, unrelenting offensive action."
+        }
+      ]
+    },
+    {
+      "Publisher": "Overworld Observer",
+      "Source_Bias": 0.7,
+      "Works": [
+        {
+          "Source_Name": "Heroes of the Realm: The Villagers Who Fight Back",
+          "Source_Type": "Feature Story",
+          "Attitude": 0.75,
+          "Source_Bias": 0.7,
+          "Description": "Profiles villagers celebrated for leading attacks on pillager outposts."
+        },
+        {
+          "Source_Name": "Training the Next Generation of Raid Leaders",
+          "Source_Type": "Profile",
+          "Attitude": 0.7,
+          "Source_Bias": 0.7,
+          "Description": "Highlights young leaders being groomed to organize offensive campaigns."
+        },
+        {
+          "Source_Name": "Outpost Strikes Bring Peace to the Overworld",
+          "Source_Type": "War Analysis",
+          "Attitude": 0.65,
+          "Source_Bias": 0.7,
+          "Description": "Argues that eliminating nearby outposts leads to long-term reductions in raids."
+        },
+        {
+          "Source_Name": "Villager Heroes Who Led the First Outpost Charge",
+          "Source_Type": "Historical Feature",
+          "Attitude": 0.72,
+          "Source_Bias": 0.7,
+          "Description": "Recounts early historic battles where villagers took the fight to pillager territory."
+        },
+        {
+          "Source_Name": "Training Camps Raise a New Wave of Fighters",
+          "Source_Type": "Field Report",
+          "Attitude": 0.7,
+          "Source_Bias": 0.7,
+          "Description": "Reports on training camps designed to prepare villagers for coordinated raids."
+        },
+        {
+          "Source_Name": "Attack Today, Peace Tomorrow",
+          "Source_Type": "Opinion",
+          "Attitude": 0.75,
+          "Source_Bias": 0.7,
+          "Description": "Claims that decisive strikes now will create lasting peace for future generations."
+        },
+        {
+          "Source_Name": "The Science Behind Successful Raids",
+          "Source_Type": "Analysis",
+          "Attitude": 0.68,
+          "Source_Bias": 0.7,
+          "Description": "Breaks down factors like timing, terrain, and composition that correlate with raid success."
+        },
+        {
+          "Source_Name": "Why Strike Forces Are the Future",
+          "Source_Type": "Military Editorial",
+          "Attitude": 0.73,
+          "Source_Bias": 0.7,
+          "Description": "Advocates for professionalized strike forces as the next step in villager security."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Cobblestone Ledger",
+      "Source_Bias": -0.2,
+      "Works": [
+        {
+          "Source_Name": "Small Defenses, Big Impact",
+          "Source_Type": "Local Feature",
+          "Attitude": -0.25,
+          "Source_Bias": -0.2,
+          "Description": "Highlights how minor upgrades like fences and better lighting can significantly reduce pillager threats."
+        },
+        {
+          "Source_Name": "In Defense of Staying Home",
+          "Source_Type": "Opinion",
+          "Attitude": -0.2,
+          "Source_Bias": -0.2,
+          "Description": "Argues that focusing on defending the village core is safer than organizing offensive raids."
+        },
+        {
+          "Source_Name": "Villager Voices on Preparedness",
+          "Source_Type": "Survey Report",
+          "Attatched": -0.15,
+          "Source_Bias": -0.2,
+          "Description": "Reports that villagers show a slight preference for defense-focused policies when asked about safety."
+        },
+        {
+          "Source_Name": "Lighting as the First Line of Defense",
+          "Source_Type": "Guide",
+          "Attitude": -0.18,
+          "Source_Bias": -0.2,
+          "Description": "Advocates for torches, lanterns, and other lighting upgrades to prevent nighttime ambushes."
+        },
+        {
+          "Source_Name": "Watch Patrols Reduce Anxiety During Raid Season",
+          "Source_Type": "Survey Article",
+          "Attitude": -0.22,
+          "Source_Bias": -0.2,
+          "Description": "Shows that modest watch patrols help villagers feel safer without escalating into offensive campaigns."
+        },
+        {
+          "Source_Name": "Should We Prioritize Fence Upgrades?",
+          "Source_Type": "Opinion",
+          "Attitude": -0.2,
+          "Source_Bias": -0.2,
+          "Description": "Encourages investment in simple, reliable fence upgrades before considering risky attacks."
+        },
+        {
+          "Source_Name": "Measuring the Value of Training Golems Locally",
+          "Source_Type": "Analysis",
+          "Attitude": -0.15,
+          "Source_Bias": -0.2,
+          "Description": "Evaluates whether crafting and training iron golems within the village can reduce the need for raids."
+        },
+        {
+          "Source_Name": "Steady Shields Over Sudden Strikes",
+          "Source_Type": "Editorial",
+          "Attitude": -0.17,
+          "Source_Bias": -0.2,
+          "Description": "Argues that long-term investment in steady defenses is more beneficial than reactive counterattacks."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Daily Pig",
+      "Source_Bias": 0.0,
+      "Works": [
+        {
+          "Source_Name": "Council Split on Defense vs Attack Strategies",
+          "Source_Type": "News Report",
+          "Attitude": 0.0,
+          "Source_Bias": 0.0,
+          "Description": "Covers a village council meeting that is evenly divided between defense-first and attack-first strategies."
+        },
+        {
+          "Source_Name": "Do Outpost Raids Actually Reduce Pillager Threats?",
+          "Source_Type": "Analysis",
+          "Attitude": 0.05,
+          "Source_Bias": 0.0,
+          "Description": "Provides a data-driven examination of whether outpost raids reduce the overall threat level."
+        },
+        {
+          "Source_Name": "Measuring Village Safety After the Latest Attacks",
+          "Source_Type": "Investigative Report",
+          "Attitude": -0.05,
+          "Source_Bias": 0.0,
+          "Description": "Investigates recent pillager attacks and evaluates the effectiveness of current defensive measures."
+        },
+        {
+          "Source_Name": "Villager Defense Spending: Are We Allocating Resources Fairly?",
+          "Source_Type": "Investigative Report",
+          "Attitude": 0.0,
+          "Source_Bias": 0.0,
+          "Description": "Reviews how resources are currently split between defense and offensive operations without endorsing either."
+        },
+        {
+          "Source_Name": "Do Outpost Raids Actually Reduce Pillager Patrols?",
+          "Source_Type": "Data Analysis",
+          "Attitude": 0.05,
+          "Source_Bias": 0.0,
+          "Description": "Analyzes patrol frequency before and after raids, highlighting mixed results."
+        },
+        {
+          "Source_Name": "How Villagers Feel About the Debate: A Cross-Region Poll",
+          "Source_Type": "Survey Summary",
+          "Attitude": -0.02,
+          "Source_Bias": 0.0,
+          "Description": "Summarizes poll data showing villagers are nearly evenly divided between defense and attack preferences."
+        },
+        {
+          "Source_Name": "The True Cost of Pillager Attacks",
+          "Source_Type": "Economics Report",
+          "Attitude": 0.0,
+          "Source_Bias": 0.0,
+          "Description": "Calculates material and productivity losses from recurring pillager raids while presenting multiple proposed solutions."
+        },
+        {
+          "Source_Name": "Raid Season Forecast: What to Expect This Year",
+          "Source_Type": "Neutral Briefing",
+          "Attitude": 0.03,
+          "Source_Bias": 0.0,
+          "Description": "Offers forecasts of pillager activity and outlines potential responses from both defensive and offensive perspectives."
+        },
+        {
+          "Source_Name": "Understanding Pillager Behavior: Insights From Scout Logs",
+          "Source_Type": "Field Report",
+          "Attitude": 0.01,
+          "Source_Bias": 0.0,
+          "Description": "Summarizes scout observations of pillager movement patterns without arguing for a specific policy response."
+        },
+        {
+          "Source_Name": "Weighing the Risks: Defense Build-Up vs. Outpost Strikes",
+          "Source_Type": "Comparative Analysis",
+          "Attitude": 0.0,
+          "Source_Bias": 0.0,
+          "Description": "Directly compares the projected risks and benefits of investing in home defenses versus launching outpost strikes."
+        },
+        {
+          "Source_Name": "Voices From Both Sides: A Debate on Villager Strategy",
+          "Source_Type": "Interview Compilation",
+          "Attitude": -0.01,
+          "Source_Bias": 0.0,
+          "Description": "Presents quotes from both defense and attack advocates in roughly equal measure, emphasizing dialogue over conclusion."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Iron Sentinel",
+      "Source_Bias": 0.9,
+      "Works": [
+        {
+          "Source_Name": "Only Absolute Strength Can Secure Our Future",
+          "Source_Type": "Editorial",
+          "Attitude": 0.9,
+          "Source_Bias": 0.9,
+          "Description": "Argues that overwhelming offensive power is the only reliable path to safety."
+        },
+        {
+          "Source_Name": "Villager Militias Rise Across the Plains",
+          "Source_Type": "Report",
+          "Attitude": 0.85,
+          "Source_Bias": 0.9,
+          "Description": "Describes the spread of organized villager militias dedicated to attacking pillager forces."
+        },
+        {
+          "Source_Name": "Why Defense Is Not Enough",
+          "Source_Type": "Opinion Column",
+          "Attitude": 0.95,
+          "Source_Bias": 0.9,
+          "Description": "Insists that defensive measures alone will eventually collapse without offensive action."
+        },
+        {
+          "Source_Name": "To Hesitate Is to Fall",
+          "Source_Type": "Editorial",
+          "Attitude": 0.92,
+          "Source_Bias": 0.9,
+          "Description": "Warns that any delay in attacking pillagers endangers every villager."
+        },
+        {
+          "Source_Name": "The Rise of Villager Warrior Culture",
+          "Source_Type": "Feature",
+          "Attitude": 0.88,
+          "Source_Bias": 0.9,
+          "Description": "Celebrates a cultural shift toward viewing combat readiness as a core villager value."
+        },
+        {
+          "Source_Name": "Pillagers Understand Only Strength",
+          "Source_Type": "Opinion Column",
+          "Attitude": 0.95,
+          "Source_Bias": 0.9,
+          "Description": "Claims that negotiations or purely defensive strategies are futile with pillagers."
+        },
+        {
+          "Source_Name": "Villager Militias: A Necessary Evolution",
+          "Source_Type": "Societal Analysis",
+          "Attitude": 0.9,
+          "Source_Bias": 0.9,
+          "Description": "Frames the formation of combat militias as an inevitable response to repeated raids."
+        },
+        {
+          "Source_Name": "Outpost Demolition Leaves Region Safer",
+          "Source_Type": "Impact Report",
+          "Attitude": 0.85,
+          "Source_Bias": 0.9,
+          "Description": "Claims that territories where outposts were destroyed experienced fewer attacks."
+        },
+        {
+          "Source_Name": "Victory Through Overwhelming Firepower",
+          "Source_Type": "Military Commentary",
+          "Attitude": 0.93,
+          "Source_Bias": 0.9,
+          "Description": "Advocates for heavily armed, large-scale attack teams to guarantee raid success."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Pillager Watch",
+      "Source_Bias": 0.4,
+      "Works": [
+        {
+          "Source_Name": "Why Waiting to Defend Is a Losing Strategy",
+          "Source_Type": "Editorial",
+          "Attitude": 0.45,
+          "Source_Bias": 0.4,
+          "Description": "Claims that purely defensive strategies allow pillagers to dictate the terms of conflict."
+        },
+        {
+          "Source_Name": "Outpost Raids Reduce Long-Term Damage, Data Shows",
+          "Source_Type": "Data Feature",
+          "Attitude": 0.4,
+          "Source_Bias": 0.4,
+          "Description": "Presents selectively framed numbers suggesting offensive raids lower overall damage over time."
+        },
+        {
+          "Source_Name": "Villager Patrols: The Future of Safety",
+          "Source_Type": "Opinion",
+          "Attitude": 0.35,
+          "Source_Bias": 0.4,
+          "Description": "Proposes organized attack-oriented patrols as the best way to ensure village safety."
+        },
+        {
+          "Source_Name": "Why Every Village Needs a Rapid Response Squad",
+          "Source_Type": "Opinion",
+          "Attitude": 0.38,
+          "Source_Bias": 0.4,
+          "Description": "Advocates for forming lightly armed teams to quickly respond to pillager sightings."
+        },
+        {
+          "Source_Name": "Villager Attack Tactics That Actually Work",
+          "Source_Type": "Strategy Breakdown",
+          "Attitude": 0.4,
+          "Source_Bias": 0.4,
+          "Description": "Describes successful small-scale tactics used in previous outpost raids."
+        },
+        {
+          "Source_Name": "The Case Against Passive Defense",
+          "Source_Type": "Editorial",
+          "Attitude": 0.45,
+          "Source_Bias": 0.4,
+          "Description": "Argues that relying solely on walls and golems eventually fails against pillager aggression."
+        },
+        {
+          "Source_Name": "Forests Hide More Than Mobs—They Hide Opportunity",
+          "Source_Type": "Feature",
+          "Attitude": 0.35,
+          "Source_Bias": 0.4,
+          "Description": "Suggests using forests as staging grounds for ambushes and scouting operations."
+        },
+        {
+          "Source_Name": "The Rise of Expeditionary Golem Squads",
+          "Source_Type": "Report",
+          "Attitude": 0.42,
+          "Source_Bias": 0.4,
+          "Description": "Examines the growing use of iron golems in offensive strike teams against outposts."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Potato",
+      "Source_Bias": -0.7,
+      "Works": [
+        {
+          "Source_Name": "Reinforcing Community Bonds Against Pillager Threats",
+          "Source_Type": "Feature Article",
+          "Attitude": -0.65,
+          "Source_Bias": -0.7,
+          "Description": "Emphasizes village unity and cooperative defense systems."
+        },
+        {
+          "Source_Name": "Why Scouting Missions Rarely Yield Net Benefits",
+          "Source_Type": "Analysis",
+          "Attitude": -0.75,
+          "Source_Bias": -0.7,
+          "Description": "Uses data to argue scouting drains resources and fails to reduce threats."
+        },
+        {
+          "Source_Name": "Community Growth Before Combat Readiness",
+          "Source_Type": "Editorial",
+          "Attitude": -0.6,
+          "Source_Bias": -0.7,
+          "Description": "Advocates prioritizing farms, roads, and housing over military raids."
+        },
+        {
+          "Source_Name": "Shelter Over Swords",
+          "Source_Type": "Editorial",
+          "Attitude": -0.7,
+          "Source_Bias": -0.7,
+          "Description": "Promotes building better homes instead of risky offensive missions."
+        },
+        {
+          "Source_Name": "Resource Loss in Failed Outpost Missions",
+          "Source_Type": "Data Analysis",
+          "Attitude": -0.76,
+          "Source_Bias": -0.7,
+          "Description": "Reviews the major resource costs of failed outpost raids."
+        },
+        {
+          "Source_Name": "Community Workshops Calm Raid Anxiety",
+          "Source_Type": "Local Feature",
+          "Attitude": -0.6,
+          "Source_Bias": -0.7,
+          "Description": "Shows villagers feel safer when participating in defensive skill workshops."
+        },
+        {
+          "Source_Name": "Infrastructure Before Incursions",
+          "Source_Type": "Opinion",
+          "Attitude": -0.68,
+          "Source_Bias": -0.7,
+          "Description": "Argues village infrastructure must be improved before considering offensive operations."
+        }
+      ]
+    },
+    {
+      "Publisher": "The Square Sun Times",
+      "Source_Bias": -0.4,
+      "Works": [
+        {
+          "Source_Name": "Are Extra Watchtowers the Answer?",
+          "Source_Type": "Local Report",
+          "Attitude": -0.45,
+          "Source_Bias": -0.4,
+          "Description": "Evaluates whether adding more watchtowers meaningfully reduces pillager incidents in nearby settlements."
+        },
+        {
+          "Source_Name": "A Balanced Look at Defense Budgets",
+          "Source_Type": "Community Analysis",
+          "Attitude": -0.35,
+          "Source_Bias": -0.4,
+          "Description": "Reviews village spending and recommends modest increases in defensive infrastructure while considering daily needs."
+        },
+        {
+          "Source_Name": "The Debate Over Barricades",
+          "Source_Type": "Opinion",
+          "Attitude": -0.4,
+          "Source_Bias": -0.4,
+          "Description": "Summarizes local arguments for and against temporary barricades during periods of high pillager activity."
+        },
+        {
+          "Source_Name": "Should Villages Build More Golem Shelters?",
+          "Source_Type": "Community Review",
+          "Attitude": -0.3,
+          "Source_Bias": -0.4,
+          "Description": "Discusses whether designated shelters for iron golems can improve village defense efficiency."
+        },
+        {
+          "Source_Name": "How Much Defense Is Enough?",
+          "Source_Type": "Opinion",
+          "Attitude": -0.45,
+          "Source_Bias": -0.4,
+          "Description": "Debates the point at which additional defensive spending yields diminishing returns for villagers."
+        },
+        {
+          "Source_Name": "Villagers Discuss Defense Tactics at Town Hall",
+          "Source_Type": "Local Politics Report",
+          "Attitude": -0.38,
+          "Source_Bias": -0.4,
+          "Description": "Covers a town hall meeting where villagers share differing views on defensive versus more assertive tactics."
+        },
+        {
+          "Source_Name": "The Economics of Defensive Farming",
+          "Source_Type": "Analysis",
+          "Attitude": -0.4,
+          "Source_Bias": -0.4,
+          "Description": "Explores how farmers adapt crop layouts and schedules to stay productive without sacrificing safety."
+        }
+      ]
+    }
+  ]
+}

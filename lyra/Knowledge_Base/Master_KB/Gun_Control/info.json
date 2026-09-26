@@ -1,0 +1,46 @@
+{
+    "Sources": [
+      {
+        "Source_Name": "Safe Streets Journal",
+        "Source_Bias": -1.0,
+        "Voice": "Advocacy-driven, public safety focused, urgent tone.",
+        "Topics": "Strict gun regulations, assault weapon bans, community safety, gun violence prevention."
+      },
+      {
+        "Source_Name": "Public Health Review",
+        "Source_Bias": -0.7,
+        "Voice": "Research-oriented, analytical, data-focused.",
+        "Topics": "Gun violence as a health issue, statistical trends, injury prevention, evidence-based policy."
+      },
+      {
+        "Source_Name": "Civic Balance Times",
+        "Source_Bias": -0.4,
+        "Voice": "Measured, community-centered, solutions-oriented.",
+        "Topics": "Background checks, waiting periods, local safety initiatives, responsible ownership."
+      },
+      {
+        "Source_Name": "The Neutral Ledger",
+        "Source_Bias": 0.0,
+        "Voice": "Just-the-facts reporting similar to AP or Reuters.",
+        "Topics": "Gun legislation updates, court rulings, crime statistics, policy summaries without framing."
+      },
+      {
+        "Source_Name": "Liberty Review",
+        "Source_Bias": 0.2,
+        "Voice": "Rights-focused, cautious about regulation, constitutional framing.",
+        "Topics": "Second Amendment interpretation, self-defense cases, regulatory overreach concerns."
+      },
+      {
+        "Source_Name": "Frontier Defense Post",
+        "Source_Bias": 0.6,
+        "Voice": "Strongly pro-gun, individual liberty focused, assertive tone.",
+        "Topics": "Concealed carry expansion, armed self-defense, resistance to new firearm restrictions."
+      },
+      {
+        "Source_Name": "Ironclad Patriot",
+        "Source_Bias": 0.9,
+        "Voice": "Militant libertarian, alarmist, anti-regulation rhetoric.",
+        "Topics": "Government tyranny narratives, массов firearm ownership advocacy, defiance of gun control laws."
+      }
+    ]
+  }

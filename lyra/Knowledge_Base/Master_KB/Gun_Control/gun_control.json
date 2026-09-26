@@ -1,0 +1,396 @@
+{
+    "Sources": [
+      {
+        "Publisher": "Safe Streets Journal",
+        "Source_Bias": -1.0,
+        "Works": [
+          {
+            "Source_Name": "Why Assault Weapon Bans Save Lives",
+            "Source_Type": "Advocacy",
+            "Attitude": -0.9,
+            "Source_Bias": -1.0,
+            "Description": "Argues that banning high-capacity firearms significantly reduces mass shooting fatalities."
+          },
+          {
+            "Source_Name": "Community Safety Over Firearm Access",
+            "Source_Type": "Opinion",
+            "Attitude": -0.85,
+            "Source_Bias": -1.0,
+            "Description": "Frames gun ownership as secondary to public safety in dense communities."
+          },
+          {
+            "Source_Name": "Gun Buyback Programs and Violence Reduction",
+            "Source_Type": "Policy Analysis",
+            "Attitude": -0.8,
+            "Source_Bias": -1.0,
+            "Description": "Claims buyback programs effectively reduce illegal firearm circulation."
+          },
+          {
+            "Source_Name": "Red Flag Laws: A Necessary Tool",
+            "Source_Type": "Legal Advocacy",
+            "Attitude": -0.9,
+            "Source_Bias": -1.0,
+            "Description": "Supports emergency firearm removal laws for high-risk individuals."
+          },
+          {
+            "Source_Name": "The Cost of Inaction on Gun Reform",
+            "Source_Type": "Editorial",
+            "Attitude": -0.88,
+            "Source_Bias": -1.0,
+            "Description": "Connects legislative gridlock to rising gun violence statistics."
+          },
+          {
+            "Source_Name": "Why Universal Background Checks Matter",
+            "Source_Type": "Public Safety Analysis",
+            "Attitude": -0.85,
+            "Source_Bias": -1.0,
+            "Description": "Advocates for closing private-sale background check loopholes."
+          },
+          {
+            "Source_Name": "Limiting Firearms to Save Youth",
+            "Source_Type": "Advocacy",
+            "Attitude": -0.92,
+            "Source_Bias": -1.0,
+            "Description": "Focuses on youth gun deaths as a driver for stricter laws."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "Public Health Review",
+        "Source_Bias": -0.7,
+        "Works": [
+          {
+            "Source_Name": "Gun Violence as a Public Health Crisis",
+            "Source_Type": "Research",
+            "Attitude": -0.6,
+            "Source_Bias": -0.7,
+            "Description": "Frames firearm injury as a preventable epidemic."
+          },
+          {
+            "Source_Name": "Emergency Room Data on Firearm Injuries",
+            "Source_Type": "Statistical Analysis",
+            "Attitude": -0.55,
+            "Source_Bias": -0.7,
+            "Description": "Analyzes national trauma center gunshot wound data."
+          },
+          {
+            "Source_Name": "Suicide Risk and Firearm Access",
+            "Source_Type": "Medical Study",
+            "Attitude": -0.65,
+            "Source_Bias": -0.7,
+            "Description": "Links household gun presence to elevated suicide fatality rates."
+          },
+          {
+            "Source_Name": "Firearms and Domestic Violence Escalation",
+            "Source_Type": "Behavioral Study",
+            "Attitude": -0.6,
+            "Source_Bias": -0.7,
+            "Description": "Examines how gun access increases lethality of domestic abuse cases."
+          },
+          {
+            "Source_Name": "Hospital Costs of Gun Injuries",
+            "Source_Type": "Economic Analysis",
+            "Attitude": -0.55,
+            "Source_Bias": -0.7,
+            "Description": "Estimates the healthcare burden associated with gun violence."
+          },
+          {
+            "Source_Name": "The Effectiveness of Waiting Periods",
+            "Source_Type": "Policy Evaluation",
+            "Attitude": -0.5,
+            "Source_Bias": -0.7,
+            "Description": "Finds modest suicide reduction after waiting period laws."
+          },
+          {
+            "Source_Name": "Risk Factors for Firearm Injury",
+            "Source_Type": "Risk Analysis",
+            "Attitude": -0.58,
+            "Source_Bias": -0.7,
+            "Description": "Identifies demographic and behavioral predictors of firearm harm."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "Civic Balance Times",
+        "Source_Bias": -0.4,
+        "Works": [
+          {
+            "Source_Name": "Balancing Rights and Responsibilities",
+            "Source_Type": "Opinion",
+            "Attitude": -0.3,
+            "Source_Bias": -0.4,
+            "Description": "Argues for regulation that preserves ownership while enhancing safety."
+          },
+          {
+            "Source_Name": "What Universal Background Checks Actually Do",
+            "Source_Type": "Policy Explanation",
+            "Attitude": -0.25,
+            "Source_Bias": -0.4,
+            "Description": "Explains practical outcomes of universal background check laws."
+          },
+          {
+            "Source_Name": "Training Requirements for Responsible Ownership",
+            "Source_Type": "Community Policy",
+            "Attitude": -0.2,
+            "Source_Bias": -0.4,
+            "Description": "Promotes firearm education as a middle-ground solution."
+          },
+          {
+            "Source_Name": "Waiting Periods and Impulse Prevention",
+            "Source_Type": "Behavioral Analysis",
+            "Attitude": -0.22,
+            "Source_Bias": -0.4,
+            "Description": "Analyzes cooling-off effects of mandatory waiting periods."
+          },
+          {
+            "Source_Name": "Local Gun Safety Programs",
+            "Source_Type": "Community Report",
+            "Attitude": -0.18,
+            "Source_Bias": -0.4,
+            "Description": "Highlights community-led firearm safety initiatives."
+          },
+          {
+            "Source_Name": "Storage Laws and Child Safety",
+            "Source_Type": "Policy Review",
+            "Attitude": -0.28,
+            "Source_Bias": -0.4,
+            "Description": "Supports safe-storage requirements to prevent youth access."
+          },
+          {
+            "Source_Name": "Mental Health Screening and Firearm Access",
+            "Source_Type": "Ethics Analysis",
+            "Attitude": -0.3,
+            "Source_Bias": -0.4,
+            "Description": "Weighs privacy concerns against public safety benefits."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "The Neutral Ledger",
+        "Source_Bias": 0.0,
+        "Works": [
+          {
+            "Source_Name": "Congress Advances New Gun Legislation",
+            "Source_Type": "News",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Summarizes the latest gun bills advancing through Congress."
+          },
+          {
+            "Source_Name": "Supreme Court Review of Firearm Regulations",
+            "Source_Type": "Legal Report",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Covers upcoming Second Amendment court cases."
+          },
+          {
+            "Source_Name": "State-by-State Firearm Law Comparison",
+            "Source_Type": "Reference",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Provides an overview of firearm regulations across all states."
+          },
+          {
+            "Source_Name": "Gun Ownership Trends Over 20 Years",
+            "Source_Type": "Statistical Report",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Tracks firearm ownership changes over time."
+          },
+          {
+            "Source_Name": "Crime Rates and Firearm Correlations",
+            "Source_Type": "Data Analysis",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Presents crime rate changes alongside gun ownership levels."
+          },
+          {
+            "Source_Name": "Public Opinion on Gun Policy",
+            "Source_Type": "Polling",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Summarizes recent national polling on gun control."
+          },
+          {
+            "Source_Name": "Federal Firearm Enforcement Overview",
+            "Source_Type": "Policy Summary",
+            "Attitude": 0.0,
+            "Source_Bias": 0.0,
+            "Description": "Explains how firearm laws are enforced federally."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "Liberty Review",
+        "Source_Bias": 0.2,
+        "Works": [
+          {
+            "Source_Name": "The Constitutional Limits of Gun Regulation",
+            "Source_Type": "Legal Opinion",
+            "Attitude": 0.2,
+            "Source_Bias": 0.2,
+            "Description": "Argues that many proposed laws exceed constitutional authority."
+          },
+          {
+            "Source_Name": "Self-Defense as a Fundamental Right",
+            "Source_Type": "Rights Commentary",
+            "Attitude": 0.25,
+            "Source_Bias": 0.2,
+            "Description": "Emphasizes personal protection as justification for gun ownership."
+          },
+          {
+            "Source_Name": "Slippery Slope of Firearm Restrictions",
+            "Source_Type": "Editorial",
+            "Attitude": 0.22,
+            "Source_Bias": 0.2,
+            "Description": "Warns that modest controls often expand into broader bans."
+          },
+          {
+            "Source_Name": "Responsible Gun Ownership Culture",
+            "Source_Type": "Lifestyle Commentary",
+            "Attitude": 0.18,
+            "Source_Bias": 0.2,
+            "Description": "Promotes safety without expanding regulation."
+          },
+          {
+            "Source_Name": "Court Challenges to Federal Gun Rules",
+            "Source_Type": "Legal Analysis",
+            "Attitude": 0.2,
+            "Source_Bias": 0.2,
+            "Description": "Details ongoing lawsuits against federal firearm policies."
+          },
+          {
+            "Source_Name": "Armed Citizens and Crime Deterrence",
+            "Source_Type": "Policy Argument",
+            "Attitude": 0.25,
+            "Source_Bias": 0.2,
+            "Description": "Argues lawful gun owners discourage violent crime."
+          },
+          {
+            "Source_Name": "Why Training Beats Regulation",
+            "Source_Type": "Opinion",
+            "Attitude": 0.15,
+            "Source_Bias": 0.2,
+            "Description": "Claims firearm education is more effective than restrictive laws."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "Frontier Defense Post",
+        "Source_Bias": 0.6,
+        "Works": [
+          {
+            "Source_Name": "Concealed Carry Saves Lives",
+            "Source_Type": "Advocacy",
+            "Attitude": 0.6,
+            "Source_Bias": 0.6,
+            "Description": "Claims armed citizens reduce violent crime through deterrence."
+          },
+          {
+            "Source_Name": "Why Gun-Free Zones Fail",
+            "Source_Type": "Security Analysis",
+            "Attitude": 0.58,
+            "Source_Bias": 0.6,
+            "Description": "Argues that disarmed zones attract attackers."
+          },
+          {
+            "Source_Name": "The Role of Armed Self-Defense in Rural Areas",
+            "Source_Type": "Regional Analysis",
+            "Attitude": 0.55,
+            "Source_Bias": 0.6,
+            "Description": "Focuses on firearm necessity in isolated regions."
+          },
+          {
+            "Source_Name": "Firearm Restrictions and Black Market Growth",
+            "Source_Type": "Economic Analysis",
+            "Attitude": 0.52,
+            "Source_Bias": 0.6,
+            "Description": "Claims strict laws increase illegal gun trafficking."
+          },
+          {
+            "Source_Name": "Gun Rights and Personal Freedom",
+            "Source_Type": "Opinion",
+            "Attitude": 0.6,
+            "Source_Bias": 0.6,
+            "Description": "Frames firearm ownership as central to liberty."
+          },
+          {
+            "Source_Name": "Police Response Time vs. Armed Defense",
+            "Source_Type": "Comparative Analysis",
+            "Attitude": 0.57,
+            "Source_Bias": 0.6,
+            "Description": "Contrasts emergency response with immediate self-defense."
+          },
+          {
+            "Source_Name": "Why Bans Don’t Stop Criminals",
+            "Source_Type": "Policy Critique",
+            "Attitude": 0.6,
+            "Source_Bias": 0.6,
+            "Description": "Argues criminals circumvent gun laws easily."
+          }
+        ]
+      },
+  
+      {
+        "Publisher": "Ironclad Patriot",
+        "Source_Bias": 0.9,
+        "Works": [
+          {
+            "Source_Name": "Gun Control as Government Tyranny",
+            "Source_Type": "Propaganda",
+            "Attitude": 0.9,
+            "Source_Bias": 0.9,
+            "Description": "Frames all gun regulation as authoritarian control."
+          },
+          {
+            "Source_Name": "Why Every Citizen Must Be Armed",
+            "Source_Type": "Militant Advocacy",
+            "Attitude": 0.95,
+            "Source_Bias": 0.9,
+            "Description": "Argues total civilian armament is necessary for freedom."
+          },
+          {
+            "Source_Name": "Federal Agents vs. Armed Citizens",
+            "Source_Type": "Conflict Rhetoric",
+            "Attitude": 0.92,
+            "Source_Bias": 0.9,
+            "Description": "Depicts law enforcement as a threat to gun owners."
+          },
+          {
+            "Source_Name": "Why Registration Leads to Confiscation",
+            "Source_Type": "Alarmist Editorial",
+            "Attitude": 0.9,
+            "Source_Bias": 0.9,
+            "Description": "Claims gun registries inevitably enable mass confiscation."
+          },
+          {
+            "Source_Name": "Resisting Firearm Restrictions by Any Means",
+            "Source_Type": "Extremist Opinion",
+            "Attitude": 0.95,
+            "Source_Bias": 0.9,
+            "Description": "Encourages total defiance of all gun laws."
+          },
+          {
+            "Source_Name": "Armed Populations and Regime Collapse",
+            "Source_Type": "Revolutionary Rhetoric",
+            "Attitude": 0.93,
+            "Source_Bias": 0.9,
+            "Description": "Connects firearm ownership to overthrowing governments."
+          },
+          {
+            "Source_Name": "Why Compromise on Guns Is Betrayal",
+            "Source_Type": "Ideological Commentary",
+            "Attitude": 0.92,
+            "Source_Bias": 0.9,
+            "Description": "Labels moderate gun policy as ideological weakness."
+          }
+        ]
+      }
+    ]
+  }
+  

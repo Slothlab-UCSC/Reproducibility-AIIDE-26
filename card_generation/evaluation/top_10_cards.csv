@@ -1,0 +1,11 @@
+CardName,WinRate,Type,Cost,Rarity,Effects,WhyTop10
+Ancient Assault,1.00,Attack,1,Common,"Dealattackdamage:8 to Enemy","High damage for low cost; simple, efficient attack."
+Ancient Bash,1.00,Attack,1,Common,"Dealattackdamage:7 to Enemy","Consistent damage output; low cost makes it easy to play."
+Ancient Bash,0.93,Attack,1,Common,"Dealattackdamage:6 to Enemy","Reliable attack, slightly less damage but still efficient."
+Ancient Block,0.87,Skill,3,Uncommon,"Drawcard:3 to Self","Draws multiple cards, enabling more options and combos."
+Ancient Brace,0.80,Skill,1,Common,"Drawcard:1 to Self","Cheap card draw, helps cycle deck quickly."
+Ancient Execute,0.80,Attack,2,Common,"Dealattackdamage:9 to Enemy","High damage for moderate cost; strong finisher."
+Ancient Jab,0.80,Attack,2,Uncommon,"Dealattackdamage:6 to Enemy; Applystatus:2 Vigor to Enemy","Combines damage with status effect, increasing future damage."
+Ancient Scrounge,0.80,Skill,1,Common,"Gainblock:7 to Self","Efficient block for low cost, strong defensive option."
+Ancient Setup,0.80,Skill,2,Uncommon,"Applystatus:2 Vigor to Enemy; Addmana:1 to Self","Applies status and generates mana, supports both offense and resource gain."
+Ancient Slash,0.80,Attack,3,Uncommon,"Dealattackdamage:8 to Enemy; Applystatus:3 Weak to Enemy","High damage plus debuff, reduces enemy's future attack power."
