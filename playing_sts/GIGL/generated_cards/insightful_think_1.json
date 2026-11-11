@@ -1,0 +1,13 @@
+{
+  "name": "Insightful Think",
+  "type": "Skill",
+  "cost": 1,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Drawcard",
+      "value": 1,
+      "target": "Self"
+    }
+  ]
+}

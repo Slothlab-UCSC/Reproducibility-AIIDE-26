@@ -1,0 +1,57 @@
+{
+  "comment": "Power Point (PP) costs for all actions, statuses, and multipliers.",
+  
+  "comment_base": "Linear costs (value * cost) unless otherwise specified",
+  "base_costs": {
+    "DealAttackDamage": 1.0,
+    "GainBlock": 1.0,
+    
+    "comment_exp": "Draw and AddMana are exponential (cost^value)",
+    "DrawCard": 5.5,
+    "AddMana": 9.0,
+    
+    "comment_card_manip": "Card manipulation costs/bonuses",
+    "DiscardCard": -2.0,
+    "TargetedExhaust_FromHand": 3.0,
+    "TargetedExhaust_FromDiscard": 1.5,
+    
+    "comment_add_card": "Adding cards to the player's deck is bad.",
+    "AddCardToPile_Wound": 4.0,
+    "AddCardToPile_Dazed": 3.0,
+    "AddCardToPile_Burn": 3.5
+  },
+  
+  "comment_status": "Costs for applying statuses.",
+  "status_costs": {
+    "Vulnerable": 2.5,
+    "Weak": 2.5,
+    "Strength": 3.5,
+    "Vigor": 3.0,
+    "Intangible": 15.0,
+    
+    "comment_permanent": "Permanent statuses from Power cards are very expensive.",
+    "Strength_Permanent": 15.0,
+    "AfterImage_Permanent": 18.0,
+    "Barricade_Permanent": 16.0
+  },
+  
+  "comment_multipliers": "Multipliers applied to the *total* PP score.",
+  "multipliers": {
+    "Exhaust": 0.75,
+    "Ethereal": 0.85,
+    "Innate": 1.15
+  },
+  
+  "comment_thresholds": "PP thresholds for cost and rarity checks.",
+  "rarity_thresholds": {
+    "comment": "Used by Validator for heuristic mismatch warnings.",
+    "Common": 7.5,
+    "Uncommon": 14.0
+  },
+  "cost_thresholds": {
+    "comment": "Determines the final energy cost.",
+    "0": 3.0,
+    "1": 8.0,
+    "2": 15.0
+  }
+}

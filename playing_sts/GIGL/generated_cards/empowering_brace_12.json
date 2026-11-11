@@ -1,0 +1,13 @@
+{
+  "name": "Empowering Brace",
+  "type": "Skill",
+  "cost": 3,
+  "rarity": "Rare",
+  "effects": [
+    {
+      "action": "Drawcard",
+      "value": 2,
+      "target": "Self"
+    }
+  ]
+}

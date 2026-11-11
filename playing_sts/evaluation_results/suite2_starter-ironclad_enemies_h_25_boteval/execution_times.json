@@ -1,0 +1,1 @@
+{"None-gpt41": {"avg_execution": 2.025485105514526}, "CoT-gpt41": {"avg_execution": 19.158830680847167}, "RCoT-gpt41": {"avg_execution": 9.3786492729187}, "RandomBot": {"avg_execution": 0.0026083660125732423}, "MCTSAgent": {"avg_execution": 2.1110379219055178}, "Backtrack-Depth3": {"avg_execution": 0.8309637928009033}}

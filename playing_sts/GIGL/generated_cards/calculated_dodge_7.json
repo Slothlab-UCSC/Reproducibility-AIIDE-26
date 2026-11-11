@@ -1,0 +1,13 @@
+{
+  "name": "Calculated Dodge",
+  "type": "Skill",
+  "cost": 1,
+  "rarity": "Uncommon",
+  "effects": [
+    {
+      "action": "Drawcard",
+      "value": 1,
+      "target": "Self"
+    }
+  ]
+}

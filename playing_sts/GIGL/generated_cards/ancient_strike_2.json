@@ -1,0 +1,13 @@
+{
+  "name": "Ancient Strike",
+  "type": "Attack",
+  "cost": 1,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Dealattackdamage",
+      "value": 5,
+      "target": "Enemy"
+    }
+  ]
+}

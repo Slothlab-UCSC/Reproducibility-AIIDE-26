@@ -1,0 +1,13 @@
+{
+  "name": "Burning Recollect",
+  "type": "Skill",
+  "cost": 1,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Gainblock",
+      "value": 7,
+      "target": "Self"
+    }
+  ]
+}

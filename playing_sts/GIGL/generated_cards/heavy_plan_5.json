@@ -1,0 +1,14 @@
+{
+  "name": "Heavy Plan",
+  "type": "Skill",
+  "cost": 0,
+  "rarity": "Uncommon",
+  "effects": [
+    {
+      "action": "Applystatus",
+      "value": 1,
+      "target": "Enemy",
+      "status": "Weak"
+    }
+  ]
+}

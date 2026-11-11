@@ -1,0 +1,7 @@
+# The thing that actually connects to the game I guess
+pyzmq
+# required to do the screenshot stuff
+pyobjc-framework-Quartz
+# For LLM
+openai
+python-dotenv

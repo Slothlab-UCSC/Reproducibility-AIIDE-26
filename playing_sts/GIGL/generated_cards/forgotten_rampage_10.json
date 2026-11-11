@@ -1,0 +1,13 @@
+{
+  "name": "Forgotten Rampage",
+  "type": "Attack",
+  "cost": 2,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Dealattackdamage",
+      "value": 9,
+      "target": "Enemy"
+    }
+  ]
+}

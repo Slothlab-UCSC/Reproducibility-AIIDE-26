@@ -1,0 +1,3 @@
+BotName,CardName,PlayerHealth,Win,TotalRequests,InvalidResponses,TotalTokens,AvgResponseTime,InvalidRate
+CoT-gpt41,Ancient Strike,20,True,37,0,14590,2.717343304608319,0.0
+CoT-gpt41,control,35,True,76,0,29869,2.5942229565821195,0.0

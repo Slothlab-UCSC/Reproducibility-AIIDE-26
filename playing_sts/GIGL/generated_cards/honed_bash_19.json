@@ -1,0 +1,13 @@
+{
+  "name": "Honed Bash",
+  "type": "Attack",
+  "cost": 2,
+  "rarity": "Uncommon",
+  "effects": [
+    {
+      "action": "Dealattackdamage",
+      "value": 12,
+      "target": "Enemy"
+    }
+  ]
+}

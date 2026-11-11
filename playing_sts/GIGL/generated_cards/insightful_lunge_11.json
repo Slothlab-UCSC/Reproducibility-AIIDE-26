@@ -1,0 +1,13 @@
+{
+  "name": "Insightful Lunge",
+  "type": "Attack",
+  "cost": 1,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Dealattackdamage",
+      "value": 7,
+      "target": "Enemy"
+    }
+  ]
+}

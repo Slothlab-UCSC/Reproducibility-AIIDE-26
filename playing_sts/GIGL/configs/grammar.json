@@ -1,0 +1,136 @@
+{
+    "<card>": [
+    [1.0, ["<common_card>"]],
+    [0.6, ["<uncommon_card>"]],
+    [0.3, ["<rare_card>"]]
+  ],
+
+  "<common_card>": [
+    [1.0, ["Common", "<common_attack>"]],
+    [1.0, ["Common", "<common_skill>"]]
+  ],
+  "<common_attack>": [
+    [1.0, ["Attack", "<common_attack_effect>"]]
+  ],
+  "<common_skill>": [
+    [1.0, ["Skill", "<common_skill_effect>"]]
+  ],
+  "<common_attack_effect>": [
+    [1.0, ["DealAttackDamage", "<common_damage>", "ENEMY"]]
+  ],
+  "<common_skill_effect>": [
+    [1.0, ["GainBlock", "<common_block>", "SELF"]],
+    [0.3, ["DrawCard", "1", "SELF"]]
+  ],
+  
+  "<uncommon_card>": [
+    [1.0, ["Uncommon", "<uncommon_attack>"]],
+    [1.0, ["Uncommon", "<uncommon_skill>"]]
+  ],
+  "<uncommon_attack>": [
+    [1.0, ["Attack", "<uncommon_attack_effect>"]],
+    [0.3, ["Attack", "<common_attack_effect>", "And", "<common_skill_effect>"]],
+    [0.4, ["Attack", "<common_attack_effect>", "And", "<debuff_effect>"]],
+    [0.2, ["Attack", "<common_attack_effect>", "<keyword_simple>"]]
+  ],
+  "<uncommon_skill>": [
+    [1.0, ["Skill", "<uncommon_skill_effect>"]],
+    [0.5, ["Skill", "<common_skill_effect>", "And", "<utility_effect>"]],
+    [0.3, ["Skill", "<debuff_effect>", "And", "<utility_effect>"]],
+    [0.2, ["Skill", "<uncommon_skill_effect>", "<keyword_simple>"]]
+  ],
+  "<uncommon_attack_effect>": [
+    [1.0, ["DealAttackDamage", "<uncommon_damage>", "ENEMY"]]
+  ],
+  "<uncommon_skill_effect>": [
+    [1.0, ["GainBlock", "<uncommon_block>", "SELF"]],
+    [0.5, ["DrawCard", "<small_number>", "SELF"]],
+    [0.3, ["AddMana", "1", "SELF"]],
+    [0.4, ["<debuff_effect>"]]
+  ],
+
+  "<rare_card>": [
+    [1.0, ["Rare", "<rare_attack>"]],
+    [1.0, ["Rare", "<rare_skill>"]],
+    [0.5, ["Rare", "<power_card>"]]
+  ],
+  "<rare_attack>": [
+    [1.0, ["Attack", "<rare_attack_effect>"]],
+    [0.7, ["Attack", "<uncommon_attack_effect>", "And", "<uncommon_skill_effect>"]],
+    [0.5, ["Attack", "<uncommon_attack_effect>", "<keyword_complex>"]]
+  ],
+  "<rare_skill>": [
+    [1.0, ["Skill", "<rare_skill_effect>"]],
+    [0.7, ["Skill", "<uncommon_skill_effect>", "And", "<utility_effect>"]],
+    [0.5, ["Skill", "<rare_skill_effect>", "<keyword_complex>"]],
+    [0.4, ["Skill", "<card_manipulation_effect>"]]
+  ],
+  "<rare_attack_effect>": [
+    [1.0, ["DealAttackDamage", "<rare_damage>", "ENEMY"]],
+    [0.5, ["DealAttackDamage", "<uncommon_damage>", "ENEMY", "And", "<debuff_effect>"]],
+    [0.3, ["DealAttackDamage", "<uncommon_damage>", "ENEMY", "And", "<utility_effect>"]]
+  ],
+  "<rare_skill_effect>": [
+    [1.0, ["GainBlock", "<rare_block>", "SELF"]],
+    [1.0, ["DrawCard", "<medium_number>", "SELF"]],
+    [0.5, ["AddMana", "2", "SELF"]],
+    [0.3, ["ApplyStatus", "Intangible", "1", "SELF"]]
+  ],
+  
+  "<power_card>": [
+    [1.0, ["Power", "<power_effect>", "<keyword_innate>"]]
+  ],
+  "<power_effect>": [
+    [1.0, ["ApplyStatus", "<buff_type_permanent>", "<buff_value>", "SELF"]],
+    [0.5, ["ApplyStatus", "AfterImage", "1", "SELF"]],
+    [0.3, ["ApplyStatus", "Barricade", "1", "SELF"]]
+  ],
+
+  "<debuff_effect>": [
+    [1.0, ["ApplyStatus", "<debuff_type>", "<duration_value>", "ENEMY"]]
+  ],
+  "<utility_effect>": [
+    [1.0, ["DrawCard", "1", "SELF"]],
+    [0.4, ["AddMana", "1", "SELF"]]
+  ],
+  "<card_manipulation_effect>": [
+    [1.0, ["DiscardCard", "<small_number>", "SELF"]],
+    [0.5, ["AddCardToPile", "Wound", "1", "DiscardPile"]],
+    [0.5, ["TargetedExhaust", "1", "FromHand"]]
+  ],
+  
+  "<debuff_type>": [
+    [1.0, ["Vulnerable"]],
+    [1.0, ["Weak"]],
+    [0.8,["Vigor"]]
+  ],
+  "<buff_type_permanent>": [
+    [1.0, ["Strength"]]
+  ],
+  
+  "<keyword_simple>": [
+    [1.0, ["Exhaust"]]
+  ],
+  "<keyword_complex>": [
+    [1.0, ["Exhaust"]],
+    [0.5, ["Ethereal"]],
+    [0.3, ["Innate"]]
+  ],
+  "<keyword_innate>": [
+    [1.0, ["Innate"]]
+  ],
+  
+  "<common_damage>": [ [1.0, ["range(5, 9)"]] ],
+  "<uncommon_damage>": [ [1.0, ["range(8, 13)"]] ],
+  "<rare_damage>": [ [1.0, ["range(12, 20)"]] ],
+  
+  "<common_block>": [ [1.0, ["range(5, 9)"]] ],
+  "<uncommon_block>": [ [1.0, ["range(8, 13)"]] ],
+  "<rare_block>": [ [1.0, ["range(12, 20)"]] ],
+  
+  "<duration_value>": [ [1.0, ["range(1, 3)"]] ],
+  "<buff_value>": [ [1.0, ["range(1, 3)"]] ],
+  
+  "<small_number>": [ [1.0, ["range(1, 3)"]] ],
+  "<medium_number>": [ [1.0, ["range(2, 4)"]] ]
+}

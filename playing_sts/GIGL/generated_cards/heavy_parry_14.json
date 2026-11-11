@@ -1,0 +1,13 @@
+{
+  "name": "Heavy Parry",
+  "type": "Skill",
+  "cost": 2,
+  "rarity": "Common",
+  "effects": [
+    {
+      "action": "Gainblock",
+      "value": 9,
+      "target": "Self"
+    }
+  ]
+}
